@@ -1,0 +1,30 @@
+.space-carousel {
+    padding: 16px;
+    background: #DEF1E5;
+    overflow: hidden;
+}
+
+.my-carousel .v-item {
+    height: 36px;
+    line-height: 36px;
+    padding-left: 10px;
+}
+
+.sub-title {
+    color: #888;
+    font-size: 14px;
+    padding: 30px 0 18px 0;
+}
+
+.bottom-bar-wrap {
+    border-top: 1px solid rgba(120, 120, 120, 0.2);
+    background: white;
+    z-index: 1000;
+    .bottom-bar-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        height: 50px;
+    }
+}
