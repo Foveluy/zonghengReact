@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { List, Carousel, WhiteSpace, WingBlank } from 'antd-mobile'
+import React from 'react'
+import { List, Carousel } from 'antd-mobile'
 import './index.scss'
 import { MONEY_COLOR } from '../../utils'
 
@@ -40,7 +40,7 @@ export class ProductDetail extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className='product-detail' >
         <Carousel
           autoplay={false}
           infinite
