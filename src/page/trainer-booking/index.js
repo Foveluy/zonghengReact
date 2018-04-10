@@ -1,5 +1,5 @@
 import React from 'react'
-import { DateTab } from '../../component/date-tab'
+import DateTab from '../../component/date-tab'
 import { ZONGHENG_THEME_COLOR } from '../../utils'
 import { Button, Toast, Flex, WhiteSpace } from 'antd-mobile'
 

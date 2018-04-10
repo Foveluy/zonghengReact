@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { ProductList } from './page/product-list'
 import { ProductDetail } from './page/product-detail'
-import { Index } from './page/index'
+import Index from './page/index'
 import { TrainerBooking } from './page/trainer-booking'
 import { Recharge } from './page/recharge'
 

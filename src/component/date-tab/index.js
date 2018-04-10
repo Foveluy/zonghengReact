@@ -2,8 +2,9 @@ import React from 'react'
 import { Tabs, WhiteSpace } from 'antd-mobile'
 import { TimeMaker } from '../../utils'
 import { TabHeader } from './tab-header'
+import { connect } from 'react-redux'
 
-export class DateTab extends React.Component {
+class DateTab extends React.Component {
   state = {
     tabs: [],
     originAry: [],
@@ -24,6 +25,10 @@ export class DateTab extends React.Component {
 
   handleOnChange = (tab, index) => {
     this.props.onChange && this.props.onChange()
+    this.props.dispatch({
+      type: 'mapIndex',
+      payload: index
+    })
     this.setState({
       index: index
     })
@@ -34,7 +39,7 @@ export class DateTab extends React.Component {
       <div>
         <Tabs
           tabs={this.state.tabs}
-          initialPage={0}
+          initialPage={this.props.dateIndex}
           swipeable={false}
           onChange={this.handleOnChange}
           tabBarActiveTextColor="#ff7a45"
@@ -55,3 +60,11 @@ export class DateTab extends React.Component {
     )
   }
 }
+
+const mapState = state => {
+  return {
+    ...state.time
+  }
+}
+
+export default connect(mapState)(DateTab)
