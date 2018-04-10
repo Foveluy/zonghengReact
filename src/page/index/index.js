@@ -13,14 +13,13 @@ export class Index extends React.Component {
     console.log(value)
   }
 
- 
   render() {
     return (
       <div>
         <WingBlank size="lg">
           <WhiteSpace />
           <SegmentedControl
-            values={['团课', '私教']}
+            values={['私教', '团课']}
             onChange={this.onChange}
             onValueChange={this.onValueChange}
             tintColor={ZONGHENG_THEME_COLOR}
@@ -31,12 +30,6 @@ export class Index extends React.Component {
           {() => {
             return (
               <div>
-                <TrainerCard />
-                <TrainerCard />
-                <TrainerCard />
-                <TrainerCard />
-                <TrainerCard />
-                <TrainerCard />
                 <TrainerCard />
                 <TrainerCard />
                 <TrainerCard />

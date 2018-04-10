@@ -4,16 +4,18 @@ import { ProductList } from './page/product-list'
 import { ProductDetail } from './page/product-detail'
 import { Index } from './page/index'
 import { TrainerBooking } from './page/trainer-booking'
+import { Recharge } from './page/recharge'
 
 export default () => {
-    return (
-        <Router>
-            <div>
-                <Route exact path="/" component={Index} />
-                <Route path="/trainerbooking/:id" component={TrainerBooking} />
-                <Route path="/list" component={ProductList} />
-                <Route path="/detail" component={ProductDetail} />
-            </div>
-        </Router>
-    )
+  return (
+    <Router>
+      <div>
+        <Route exact path="/" component={Index} />
+        <Route path="/trainerbooking/:id" component={TrainerBooking} />
+        <Route path="/list" component={ProductList} />
+        <Route path="/detail" component={ProductDetail} />
+        <Route path="/recharge" component={Recharge} />
+      </div>
+    </Router>
+  )
 }

@@ -1,9 +1,11 @@
 import React from 'react'
 import { DateTab } from '../../component/date-tab'
 import { ZONGHENG_THEME_COLOR } from '../../utils'
-import { Button, Toast } from 'antd-mobile'
+import { Button, Toast, Flex, WhiteSpace } from 'antd-mobile'
 
 import './index.scss'
+import { Avatar } from '../../component/avatar'
+import { SmallText } from '../../component/text'
 
 function TrainerTime() {
   let t = []
@@ -75,13 +77,16 @@ export class TrainerBooking extends React.Component {
     return (
       <div>
         <div className="trainer-area" style={{ backgroundColor: ZONGHENG_THEME_COLOR }}>
-          trainer-area
+          <Avatar />
+          <div>教练:</div>
         </div>
         <DateTab onChange={this.handleOnChange}>
           {date => (
-            <div>
-              <div>每节课时长60分钟</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Flex align="center" justify="center" direction="column">
+              <WhiteSpace />
+              <SmallText>每节课时长60分钟</SmallText>
+              <WhiteSpace />
+              <Flex wrap="wrap" justify="center">
                 {this.state.TrainerTime.map(i => {
                   return (
                     <div
@@ -96,14 +101,14 @@ export class TrainerBooking extends React.Component {
                     </div>
                   )
                 })}
-              </div>
+              </Flex>
               <Button
                 style={{ width: 150, marginTop: 80, backgroundColor: ZONGHENG_THEME_COLOR, color: 'white' }}
                 onClick={() => this.HandleOnSubmit(date)}
               >
                 预约
               </Button>
-            </div>
+            </Flex>
           )}
         </DateTab>
       </div>
