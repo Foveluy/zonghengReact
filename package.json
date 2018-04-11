@@ -46,7 +46,7 @@
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
     "resolve": "1.6.0",
-    "rluy": "^0.2.14",
+    "rluy": "^0.2.15",
     "sass-loader": "^6.0.7",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",

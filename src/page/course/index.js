@@ -14,6 +14,13 @@ class Index extends React.Component {
       payload: e.nativeEvent.selectedSegmentIndex
     })
   }
+  componentWillMount() {
+    localStorage.setItem('jwt_token', this.props.match.params.ticket)
+  }
+  componentDidMount() {
+    this.props.dispatch({ type: 'fetchCourse' })
+  }
+
   render() {
     const course = () => {
       return this.props.courseType === 0 ? (

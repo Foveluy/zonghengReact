@@ -14,6 +14,11 @@ export default {
         type: 'mapCourseType',
         payload
       })
+    },
+    *fetchCourse({put},{payload}){
+
+      
+
     }
   }
 }
