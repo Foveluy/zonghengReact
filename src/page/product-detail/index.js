@@ -24,7 +24,7 @@ const BottomBar = ({ children }) => {
   )
 }
 
-export class ProductDetail extends React.Component {
+export default class ProductDetail extends React.Component {
   state = {
     data: ['1', '2', '3'],
     imgHeight: 176,

@@ -12,7 +12,7 @@ const fake = () => {
     })
 }
 
-export class ProductList extends React.Component {
+export default class ProductList extends React.Component {
     state = {
         docked: false,
         list: fake()

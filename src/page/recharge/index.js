@@ -6,7 +6,7 @@ import { SmallText } from '../../component/text'
 
 const Item = List.Item
 
-export class Recharge extends React.Component {
+export default class Recharge extends React.Component {
   render() {
     return (
       <div>

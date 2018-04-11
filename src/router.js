@@ -1,23 +1,17 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { ProductList } from './page/product-list'
-import { ProductDetail } from './page/product-detail'
-import Index from './page/index'
-import { TrainerBooking } from './page/trainer-booking'
-import { Recharge } from './page/recharge'
 
-export default (component) => {
-
-  console.log('conponent',)
-  return (
-    <Router>
-      <div>
-        <Route exact path="/" component={Index} />
-        <Route path="/trainerbooking/:id" component={TrainerBooking} />
-        <Route path="/list" component={ProductList} />
-        <Route path="/detail" component={ProductDetail} />
-        <Route path="/recharge" component={Recharge} />
-      </div>
-    </Router>
-  )
+export default component => {
+    console.log('conponent', component)
+    return (
+        <Router>
+            <div>
+                <Route exact path="/" component={component['course']} />
+                <Route path="/trainerbooking/:id" component={component['trainer-booking']} />
+                <Route path="/list" component={component['product-list']} />
+                <Route path="/detail" component={component['product-detail']} />
+                <Route path="/recharge" component={component['recharge']} />
+            </div>
+        </Router>
+    )
 }
