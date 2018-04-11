@@ -6,7 +6,9 @@ import Index from './page/index'
 import { TrainerBooking } from './page/trainer-booking'
 import { Recharge } from './page/recharge'
 
-export default () => {
+export default (component) => {
+
+  console.log('conponent',)
   return (
     <Router>
       <div>
