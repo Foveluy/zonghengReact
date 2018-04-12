@@ -1,3 +1,5 @@
+import { BaseManager } from "../manager/BaseManager";
+
 export default {
   namespace: 'course',
   state: {
@@ -16,7 +18,7 @@ export default {
       })
     },
     *fetchCourse({put},{payload}){
-
+      const mana = new BaseManager()
       
 
     }
