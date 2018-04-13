@@ -7,7 +7,6 @@ export default component => {
   return (
     <Router>
       <div>
-        <GlobalSpiner />
         <Route path="/course" component={component['course']} />
         <Route path="/trainerbooking/:id" component={component['trainer-booking']} />
         <Route path="/list" component={component['product-list']} />

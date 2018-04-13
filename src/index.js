@@ -1,5 +1,6 @@
 import registerServiceWorker from './registerServiceWorker'
 import { App } from 'rluy'
+import './app.scss'
 
 App.router(require('./router'))
 
