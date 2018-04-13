@@ -1,0 +1,111 @@
+$spinColor: #1890ff;
+.animate-continer {
+    position: absolute;
+    overflow: hidden;
+    top: 25%;
+    z-index: 1000;
+}
+
+.animate {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animate>div:first-of-type,
+.animate>div:nth-child(2),
+.animate>div:nth-child(3),
+.animate>div:last-of-type {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    top: 100px;
+    margin: 2px;
+}
+
+.animate>div:first-of-type {
+    left: -15px;
+    background: $spinColor;
+    animation: loader 3s 200ms infinite;
+    -webkit-animation: loader 3s 200ms infinite;
+    /* Safari 与 Chrome */
+}
+
+.animate>div:nth-child(2) {
+    left: -30px;
+    background: $spinColor;
+    animation: loader 3s 400ms infinite;
+    -webkit-animation: loader 3s 400ms infinite;
+    /* Safari 与 Chrome */
+}
+
+.animate>div:nth-child(3) {
+    left: -45px;
+    background: $spinColor;
+    animation: loader 3s 600ms infinite;
+    -webkit-animation: loader 3s 600ms infinite;
+    /* Safari 与 Chrome */
+}
+
+.animate>div:last-of-type {
+    left: -60px;
+    background: $spinColor;
+    animation: loader 3s 800ms infinite;
+    -webkit-animation: loader 3s 800ms infinite;
+    /* Safari 与 Chrome */
+}
+
+.back {
+    margin: auto;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+@keyframes loader {
+    0% {
+        width: 5px;
+        height: 5px;
+        transform: translate(0, 0);
+    }
+    45% {
+        width: 10px;
+        height: 10px;
+        transform: translate(187px, 0);
+    }
+    55% {
+        width: 10px;
+        height: 10px;
+        transform: translate(187px, 0);
+    }
+    100% {
+        width: 5px;
+        height: 5px;
+        transform: translate(375px, 0);
+    }
+}
+
+@-webkit-keyframes loader {
+    0% {
+        width: 5px;
+        height: 5px;
+        transform: translate(0, 0);
+    }
+    45% {
+        width: 10px;
+        height: 10px;
+        transform: translate(187px, 0);
+    }
+    55% {
+        width: 10px;
+        height: 10px;
+        transform: translate(187px, 0);
+    }
+    100% {
+        width: 5px;
+        height: 5px;
+        transform: translate(375px, 0);
+    }
+}

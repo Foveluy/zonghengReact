@@ -12,9 +12,10 @@ export const TrainerCard = ({ tainerAvatar, name = 'john', bref = 'john is good'
         <Card style={{ backgroundColor: ZONGHENG_THEME_COLOR }}>
           <Card.Body>
             <Flex align="center">
-              <Avatar />
-              <div style={{ color: 'white', padding: 10 }}>
-                {name} {bref}
+              <Avatar src={tainerAvatar} />
+              <div>
+                <div style={{ color: 'white', padding: 10 }}>{name}</div>
+                <div style={{ color: 'white', padding: 10, fontSize: 12 }}>{bref}</div>
               </div>
             </Flex>
           </Card.Body>

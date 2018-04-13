@@ -113,17 +113,17 @@ export default class TrainerBooking extends React.Component {
               >
                 预约
               </Button>
-              <Link to="/">
-                <Button
-                  style={{
-                    width: 150,
-                    marginTop: 20,
-                    border: '1px solid rgba(120,120,120,0.3)'
-                  }}
-                >
-                  返回
-                </Button>
-              </Link>
+
+              <div
+                className="btn-link am-button"
+                style={{
+                  width: 150,
+                  marginTop: 20,
+                  border: '1px solid rgba(120,120,120,0.3)'
+                }}
+              >
+                <Link to="/course">返回</Link>
+              </div>
             </Flex>
           )}
         </DateTab>

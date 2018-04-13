@@ -3,7 +3,7 @@ import { Card, WingBlank, WhiteSpace, Flex } from 'antd-mobile'
 import { Avatar } from '../../component/avatar'
 import { SmallText } from '../../component/text'
 
-export const CourseCard = () => {
+export const CourseCard = ({ time, maxMember, member, trainer, course }) => {
   return (
     <WingBlank size="lg">
       <WhiteSpace size="lg" />
@@ -16,14 +16,16 @@ export const CourseCard = () => {
       >
         <div style={{ backgroundColor: 'rgba(12,12,12,0.5)', borderRadius: 5 }}>
           <Card.Header
-            title={<SmallText style={{ color: 'white' }}>教练：李鑫</SmallText>}
+            title={<SmallText style={{ color: 'white' }}>教练：{trainer.trainer}</SmallText>}
             thumb={<Avatar />}
-            extra={<SmallText style={{ color: 'white' }}>力量训练的啊</SmallText>}
+            extra={<SmallText style={{ color: 'white' }}>{course}</SmallText>}
           />
           <Card.Body>
             <Flex justify="center">
-              <div style={{ color: 'white' }}>「3:00~5:00」</div>
-              <div style={{ color: 'white' }}>「0/15人」</div>
+              <div style={{ color: 'white' }}>「{time}」</div>
+              <div style={{ color: 'white' }}>
+                「{member}/{maxMember}人」
+              </div>
             </Flex>
           </Card.Body>
         </div>

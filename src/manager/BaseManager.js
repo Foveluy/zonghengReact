@@ -64,7 +64,7 @@ export class BaseManager {
 
             this.loginFail(res.status)
             const json = yield res.json()
-            return json
+            return json.data
         } catch (e) {
             console.log(e)
         }

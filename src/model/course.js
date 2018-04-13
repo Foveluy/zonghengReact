@@ -1,28 +1,46 @@
 import { BaseManager } from '../manager/BaseManager'
+import { currentDate } from '../utils'
+import { update } from '../service/course'
 
 export default {
-    namespace: 'course',
-    state: {
-        courseType: 0
+  namespace: 'course',
+  state: {
+    courseType: 0, //0代表私教，1代表团课,
+    trainer: [],
+    course: []
+  },
+  reducer: {
+    mapCourseType(state, { payload }) {
+      return { ...state, courseType: payload }
     },
-    reducer: {
-        mapCourseType(state, { payload }) {
-            return { ...state, courseType: payload }
-        }
+    mapTrainer(state, { payload }) {
+      return { ...state, trainer: payload }
     },
-    effects: {
-        *courseTypeChange({ put }, { payload }) {
-            yield put({
-                type: 'mapCourseType',
-                payload
-            })
-        },
-        *fetchCourse({ put, select }, { payload }) {
-            const date = payload.split('-')[0]
-
-            const mana = new BaseManager()
-            const d = yield mana.fetch('/course', { date })
-            console.log(d)
-        }
+    mapCourse(state, { payload }) {
+      return { ...state, course: payload }
     }
+  },
+  effects: {
+    *courseTypeChange({ put, select }, { payload }) {
+      const date = yield currentDate()
+      yield put({
+        type: 'mapCourseType',
+        payload
+      })
+
+      const type = yield select(state => state.course.courseType)
+      const mana = new BaseManager()
+      const data = yield mana.fetch('/course', { date, type })
+
+      yield update.course(data)
+    },
+    *fetchCourse({ put, select }, { payload }) {
+      const date = yield currentDate()
+      const type = yield select(state => state.course.courseType)
+
+      const mana = new BaseManager()
+      const data = yield mana.fetch('/course', { date, type })
+      yield update.trainer(data)
+    }
+  }
 }

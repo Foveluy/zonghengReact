@@ -1,3 +1,7 @@
+import { currentDate } from '../utils'
+import { BaseManager } from '../manager/BaseManager'
+import { update } from '../service/course'
+
 export default {
   namespace: 'time',
   state: {
@@ -9,5 +13,21 @@ export default {
       return { ...state, dateIndex: payload }
     }
   },
-  effects: {}
+  effects: {
+    *dateChange({ put, select }, { payload }) {
+      yield put({
+        type: 'mapIndex',
+        payload
+      })
+      const type = yield select(state => state.course.courseType)
+      const date = yield currentDate()
+      const mana = new BaseManager()
+      const data = yield mana.fetch('/course', { date, type })
+      if (type === 0) {
+        yield update.trainer(data)
+      } else {
+        yield update.course(data)
+      }
+    }
+  }
 }
