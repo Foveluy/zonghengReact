@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs, WhiteSpace } from 'antd-mobile'
-import { TimeMaker, ZONGHENG_THEME_COLOR, YELLOW } from '../../utils'
+import { TimeMaker, ZONGHENG_THEME_COLOR, STYLE_COLOR } from '../../utils'
 import { TabHeader } from './tab-header'
 import { connect } from 'react-redux'
 import './index.scss'
@@ -25,15 +25,11 @@ class DateTab extends React.Component {
     }
 
     componentDidMount() {
-        this.props.dispatch({ type: 'fetchCourse', payload: this.state.originAry[this.state.index] })
+        // this.props.dispatch({ type: 'fetchCourse', payload: this.state.originAry[this.state.index] })
     }
 
     handleOnChange = (tab, index) => {
-        this.props.onChange && this.props.onChange()
-        this.props.dispatch({
-            type: 'dateChange',
-            payload: index
-        })
+        this.props.onChange && this.props.onChange(index)
         this.setState({
             index: index
         })
@@ -47,10 +43,10 @@ class DateTab extends React.Component {
                     initialPage={this.props.dateIndex}
                     swipeable={false}
                     onChange={this.handleOnChange}
-                    tabBarActiveTextColor={YELLOW}
+                    tabBarActiveTextColor={STYLE_COLOR}
                     tabBarBackgroundColor={ZONGHENG_THEME_COLOR}
                     tabBarInactiveTextColor="#e8e8e8"
-                    tabBarUnderlineStyle={{ border: `1px solid ${YELLOW}` }}
+                    tabBarUnderlineStyle={{ border: `1px solid ${STYLE_COLOR}` }}
                 >
                     <div
                         style={{

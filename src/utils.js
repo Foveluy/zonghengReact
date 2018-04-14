@@ -8,7 +8,7 @@ export const FontSize = {
 }
 
 export const ZONGHENG_THEME_COLOR = '#262626'
-export const YELLOW = '#ffec3d'
+export const STYLE_COLOR = '#fa541c'
 
 export function TimeMaker() {
     let time = []
@@ -28,4 +28,44 @@ export function* currentDate() {
     const index = yield select(state => state.time.dateIndex)
 
     return TimeMaker()[index].split('-')[0]
+}
+
+/**
+ * 返回值中select 0是没有被选择，1是被系统选择，2是玩家选择
+ */
+export function TrainerTime() {
+    let t = []
+    for (let i = 9; i < 23; i++) {
+        const _timeObj = i => {
+            return {
+                time: i,
+                select: 0,
+                over: false
+            }
+        }
+
+        t.push(_timeObj(`${i}:00`))
+        if (i !== 22) t.push(_timeObj(`${i}:30`))
+    }
+    return t
+}
+
+export const timeSelector = (t, time) => {
+    let next = void 666
+    if (time === '22:00' || time === '21:30' || time === '21:00') time = '20:30'
+    return t.map((i, idx) => {
+        if (i.select === 1) {
+            return i
+        }
+
+        if (next && (next === idx || next + 1 === idx || next + 2 === idx)) {
+            return { ...i, select: 2 }
+        }
+        if (i.time === time) {
+            next = idx + 1
+            return { ...i, select: 2 }
+        }
+
+        return { ...i, select: 0 }
+    })
 }

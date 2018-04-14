@@ -3,7 +3,7 @@ import { SegmentedControl, WingBlank, WhiteSpace } from 'antd-mobile'
 import { TrainerCard } from './trainer-card'
 import DateTab from '../../component/date-tab'
 import './index.scss'
-import { ZONGHENG_THEME_COLOR, YELLOW } from '../../utils'
+import { ZONGHENG_THEME_COLOR, YELLOW, STYLE_COLOR } from '../../utils'
 import { connect } from 'react-redux'
 import { CourseCard } from './course-card'
 
@@ -18,8 +18,18 @@ class Index extends React.Component {
         const ticket =
             process.env.NODE_ENV === 'production'
                 ? this.props.match.params.ticket
-                : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImYzMjk1YWUyMTEyMmUyYmRiYjlhZTAwZWM1NDRiNWQyNWY1ZDM3YzQiLCJpYXQiOjE1MjM1MTc1NDEsImV4cCI6MTUyMzY5MDM0MX0.bF76ZTVVic2Vl5aI7HvuPZakW4eEv4iku80gx33A1vM'
+                : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImYzMjk1YWUyMTEyMmUyYmRiYjlhZTAwZWM1NDRiNWQyNWY1ZDM3YzQiLCJpYXQiOjE1MjM2Njk3NDMsImV4cCI6MTUyMzg0MjU0M30.o1KofoZIMpcX9fOOTud5l0eqibSabanFW9dVzKE_IEI'
+        // const ticket = this.props.match.params.ticket
         localStorage.setItem('jwt_token', ticket)
+    }
+    componentDidMount() {
+        this.props.dispatch({ type: 'fetchCourse' })
+    }
+    onDateChange = index => {
+        this.props.dispatch({
+            type: 'dateChange',
+            payload: index
+        })
     }
 
     render() {
@@ -29,6 +39,7 @@ class Index extends React.Component {
                     {this.props.trainer.map(trainer => (
                         <TrainerCard
                             key={trainer.id}
+                            id={trainer.id}
                             name={trainer.trainer}
                             bref={trainer.bref}
                             tainerAvatar={trainer.avatarUrl}
@@ -48,12 +59,12 @@ class Index extends React.Component {
                         values={['私教', '团课']}
                         onChange={this.onChange}
                         selectedIndex={this.props.courseType}
-                        tintColor={YELLOW}
+                        tintColor={STYLE_COLOR}
                         className="zongheng-segment"
                     />
                     <WhiteSpace />
                 </WingBlank>
-                <DateTab>
+                <DateTab onChange={this.onDateChange}>
                     {() => {
                         return course()
                     }}

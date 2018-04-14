@@ -7,7 +7,7 @@ export default component => {
   return (
     <Router>
       <div>
-        <Route path="/course" component={component['course']} />
+        <Route path="/course/:ticket" component={component['course']} />
         <Route path="/trainerbooking/:id" component={component['trainer-booking']} />
         <Route path="/list" component={component['product-list']} />
         <Route path="/detail" component={component['product-detail']} />
