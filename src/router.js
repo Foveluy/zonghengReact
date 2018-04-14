@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { GlobalSpiner } from './component/spinner'
 
 const IMTEST = () => {
-    return <div>测试一下容器服务</div>
+    return <div>测试一下容器服务d</div>
 }
 
 export default component => {
