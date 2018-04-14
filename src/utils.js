@@ -24,6 +24,15 @@ export function TimeMaker() {
     return time
 }
 
+export const setTicket = (ticket)=>{
+    localStorage.setItem('jwt_token', ticket)
+}
+
+export const getTicket = ()=>{
+    return localStorage.getItem('jwt_token')
+}
+
+
 export function* currentDate() {
     const index = yield select(state => state.time.dateIndex)
 

@@ -1,0 +1,8 @@
+version: '3'
+services: 
+  zhreact:
+    build: .
+    volumes:
+      - "./default:/etc/nginx/conf.d/default.conf"
+    ports:
+      - 8088:80

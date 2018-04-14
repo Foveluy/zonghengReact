@@ -3,7 +3,7 @@ import { SegmentedControl, WingBlank, WhiteSpace } from 'antd-mobile'
 import { TrainerCard } from './trainer-card'
 import DateTab from '../../component/date-tab'
 import './index.scss'
-import { ZONGHENG_THEME_COLOR, YELLOW, STYLE_COLOR } from '../../utils'
+import { ZONGHENG_THEME_COLOR, YELLOW, STYLE_COLOR, setTicket } from '../../utils'
 import { connect } from 'react-redux'
 import { CourseCard } from './course-card'
 
@@ -20,7 +20,7 @@ class Index extends React.Component {
                 ? this.props.match.params.ticket
                 : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImYzMjk1YWUyMTEyMmUyYmRiYjlhZTAwZWM1NDRiNWQyNWY1ZDM3YzQiLCJpYXQiOjE1MjM2Njk3NDMsImV4cCI6MTUyMzg0MjU0M30.o1KofoZIMpcX9fOOTud5l0eqibSabanFW9dVzKE_IEI'
         // const ticket = this.props.match.params.ticket
-        localStorage.setItem('jwt_token', ticket)
+        setTicket(ticket)
     }
     componentDidMount() {
         this.props.dispatch({ type: 'fetchCourse' })
