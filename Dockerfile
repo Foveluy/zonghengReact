@@ -1,5 +1,6 @@
 FROM node:8.9.3
 RUN apt-get update  && apt-get install -y nginx
+COPY nginx-site.conf /etc/nginx/conf.d/default.conf
 WORKDIR /app
 COPY . /app/
 EXPOSE 80
