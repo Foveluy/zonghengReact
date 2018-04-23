@@ -19,6 +19,8 @@ export default {
                 type: 'mapIndex',
                 payload
             })
+            
+
             const type = yield select(state => state.course.courseType)
             const date = yield currentDate()
             const mana = new BaseManager()
