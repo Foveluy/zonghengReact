@@ -31,8 +31,11 @@ export default {
       const type = yield select(state => state.course.courseType)
       const mana = new BaseManager()
       const data = yield mana.fetch('/course', { date, type })
-
-      yield update.course(data)
+      if (type === 0) {
+        yield update.trainer(data)
+      } else {
+        yield update.course(data)
+      }
     },
     *fetchCourse({ put, select }, { payload }) {
       const date = yield currentDate()
@@ -40,7 +43,11 @@ export default {
 
       const mana = new BaseManager()
       const data = yield mana.fetch('/course', { date, type })
-      yield update.trainer(data)
+      if (type === 0) {
+        yield update.trainer(data)
+      } else {
+        yield update.course(data)
+      }
     }
   }
 }

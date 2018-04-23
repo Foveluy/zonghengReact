@@ -5,6 +5,9 @@ import { ZONGHENG_THEME_COLOR } from '../../utils'
 import { Avatar } from '../../component/avatar'
 
 export const TrainerCard = ({ tainerAvatar, name = 'john', bref = 'john is good' }) => {
+  if (typeof name !== 'string') {
+    name = name.trainer
+  }
   return (
     <Link to="/trainerbooking/123">
       <WingBlank size="lg">

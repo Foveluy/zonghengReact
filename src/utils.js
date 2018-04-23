@@ -28,3 +28,7 @@ export function* currentDate() {
 
   return TimeMaker()[index].split('-')[0]
 }
+
+export function firstPageUrl() {
+  return '/course/' + localStorage.getItem('jwt_token')
+}

@@ -1,30 +1,14 @@
 import React from 'react'
 import { List, Carousel } from 'antd-mobile'
 import './index.scss'
-import { MONEY_COLOR } from '../../utils'
+import { MONEY_COLOR, firstPageUrl } from '../../utils'
+import { Link } from 'react-router-dom'
+import { BottomBar, BottomBarItem } from '../../component/bottom-bar'
 
 const Item = List.Item
 const Brief = Item.Brief
 
-const BottomBarItem = ({ children, backgroundColor }) => {
-  return (
-    <div className="bottom-bar-item" style={{ backgroundColor: backgroundColor }}>
-      {children}
-    </div>
-  )
-}
-
-const BottomBar = ({ children }) => {
-  return (
-    <div style={{ position: 'fixed', bottom: 0, width: '100%' }}>
-      <div className="bottom-bar-wrap" style={{ display: 'flex' }}>
-        {children}
-      </div>
-    </div>
-  )
-}
-
-export default class ProductDetail extends React.Component {
+export class ProductDetail extends React.Component {
   state = {
     data: ['1', '2', '3'],
     imgHeight: 176,
@@ -32,15 +16,24 @@ export default class ProductDetail extends React.Component {
   }
   componentDidMount() {
     // simulate img loading
+    console.log(this.props)
     setTimeout(() => {
       this.setState({
         data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI']
       })
     }, 100)
   }
+
   render() {
+    const to = () => {
+      if (this.props.match.path.indexOf('cmodel') >= 0) {
+        return firstPageUrl()
+      }
+      return '/product'
+    }
+
     return (
-      <div className='product-detail' >
+      <div className="wrapper">
         <Carousel
           autoplay={false}
           infinite
@@ -76,18 +69,35 @@ export default class ProductDetail extends React.Component {
             wrap
             extra={<div style={{ color: MONEY_COLOR, fontSize: 22 }}>¥1234</div>}
           >
-            ListItem （Android）
-            <div>There may have water ripple effect of material if you set the click event.</div>
+            {this.props.title}
+            <br />
+            {this.props.trainer}
+            <br />
+            {this.props.date}
+            <br />
+            {this.props.time}
           </Item>
           <Item multipleLine onClick={() => {}}>
-            Title <Brief>subtitle</Brief>
+            <Brief>{this.props.bref}</Brief>
           </Item>
         </List>
+      </div>
+    )
+  }
+}
+
+export default class ProductDetailPage extends React.Component {
+  render() {
+    return (
+      <div className="product-detail">
+        <ProductDetail />
         <BottomBar>
           <BottomBarItem>
-            <div>返回</div>
+            <Link to={firstPageUrl()}>
+              <div>返回</div>
+            </Link>
           </BottomBarItem>
-          <BottomBarItem backgroundColor="#fa541c">
+          <BottomBarItem backgroundColor="#fa541c" color="white">
             <div>购买</div>
           </BottomBarItem>
         </BottomBar>

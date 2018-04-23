@@ -18,7 +18,7 @@ class Index extends React.Component {
     const ticket =
       process.env.NODE_ENV === 'production'
         ? this.props.match.params.ticket
-        : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImYzMjk1YWUyMTEyMmUyYmRiYjlhZTAwZWM1NDRiNWQyNWY1ZDM3YzQiLCJpYXQiOjE1MjM1MTc1NDEsImV4cCI6MTUyMzY5MDM0MX0.bF76ZTVVic2Vl5aI7HvuPZakW4eEv4iku80gx33A1vM'
+        : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6ImYzMjk1YWUyMTEyMmUyYmRiYjlhZTAwZWM1NDRiNWQyNWY1ZDM3YzQiLCJpYXQiOjE1MjQ0NDIzMTksImV4cCI6MTUyNDYxNTExOX0.371CBq7RCEIJxjiiub_dDA6DpqvrunazJQ6L2iqlw7E'
     localStorage.setItem('jwt_token', ticket)
   }
 
