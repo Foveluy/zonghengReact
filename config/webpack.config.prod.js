@@ -129,6 +129,14 @@ module.exports = {
         include: paths.appSrc,
       },
       {
+        test: /rluyconfig/,
+        use: [
+          {
+            loader: require.resolve('rluy/RluyLoader.js')
+          }
+        ]
+      },
+      {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall
         // back to the "file" loader at the end of the loader list.
@@ -149,6 +157,9 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
+              plugins: [
+                ['import', { libraryName: 'antd-mobile', style: 'css' }] // `style: true` 会加载 less 文件
+              ],
               
               compact: true,
             },
@@ -211,6 +222,20 @@ module.exports = {
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          {
+            test: /\.scss$/,
+            use: [
+              {
+                loader: 'style-loader' // creates style nodes from JS strings
+              },
+              {
+                loader: 'css-loader' // translates CSS into CommonJS
+              },
+              {
+                loader: 'sass-loader' // compiles Sass to CSS
+              }
+            ]
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.

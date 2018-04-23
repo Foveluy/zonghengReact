@@ -1,4 +1,5 @@
 import { call } from 'redux-saga/effects'
+<<<<<<< HEAD
 import { Toast } from 'antd-mobile'
 
 export class BaseManager {
@@ -7,6 +8,16 @@ export class BaseManager {
     this.domain = process.env.NODE_ENV === 'production' ? 'http://www.foveluy.com/api' : 'http://127.0.0.1:7001/api'
     this.token = localStorage.getItem('jwt_token')
   }
+=======
+import { getTicket } from '../utils'
+
+export class BaseManager {
+    constructor() {
+        this.call = call
+        this.domain = process.env.NODE_ENV === 'production' ? 'http://www.foveluy.com/api' : 'http://127.0.0.1:7001/api'
+        this.token = getTicket()
+    }
+>>>>>>> cb0b950734cf4653adcaae6be99aa0cde4413b87
 
   loginFail(status) {
     if (status === 401) {
