@@ -4,7 +4,7 @@ import { Toast } from 'antd-mobile'
 export class BaseManager {
   constructor() {
     this.call = call
-    this.domain = process.env.NODE_ENV === 'production' ? 'http://www.foveluy.com/api' : 'http://127.0.0.1:7001/api'
+    this.domain = process.env.NODE_ENV === 'production' ? 'https://zh.9uhxir.top/node_api' : 'http://127.0.0.1:7001/api'
     this.token = localStorage.getItem('jwt_token')
   }
 
