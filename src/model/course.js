@@ -4,7 +4,6 @@ import { update } from '../service/course'
 import { Toast } from 'antd-mobile'
 
 export default {
-  namespace: 'course',
   state: {
     courseType: 0, //0代表私教，1代表团课,3代表选私教时间
     trainer: [],

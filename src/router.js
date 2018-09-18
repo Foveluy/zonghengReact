@@ -1,13 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-// import { GlobalSpiner } from './component/spinner'
-
-const IMTEST = () => {
-  return <div>测试一下容asdasdas器服务d</div>
-}
 
 export default component => {
-  console.log('conponent', component)
   return (
     <Router>
       <div>
